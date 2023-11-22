@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      box-sizing: border-box;
+    }
+
+    .container {
+      width: 1000px;
+      height: 1000px;
+      text-align: center;
+      margin: auto;
+      /* border: 1px solid #333; */
+      flex-direction: row;
+      display: flex;
+    }
+
+    .write {
+      font-family: "標楷體";
+      font-size: 40px;
+      writing-mode: vertical-rl;
+      width: 40px;
+      margin-left: 30px;
+      margin-right: 30px;
+    }
+
+    .row {
+      width: 800px;
+      height: 800px;
+      text-align: center;
+      margin: auto;
+      border: 1px solid #333;
+      position: relative;
+    }
+
+    .col {
+      width: 700px;
+      height: 700px;
+      /* border: 1px solid #333; */
+      margin: 50px auto;
+    }
+
+    .col1 {
+      width: 700px;
+      height: 300px;
+      /* border: 1px solid #333; */
+      text-align: center;
+      margin: auto;
+    }
+
+    .chess0 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 13px;
+      left: 23px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess1 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 13px;
+      left: 102px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess2 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 13px;
+      left: 188px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess3 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 13px;
+      left: 276px;
+      z-index: 100;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess4 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 13px;
+      left: 364px;
+      z-index: 100;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess5 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 13px;
+      left: 452px;
+      z-index: 100;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess6 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 13px;
+      left: 540px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess7 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 13px;
+      left: 628px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess8 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 13px;
+      left: 716px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess9 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 169px;
+      left: 102px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess10 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 169px;
+      left: 628px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess11 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 235px;
+      left: 23px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess12 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 235px;
+      left: 188px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess13 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 235px;
+      left: 360px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess14 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 235px;
+      left: 540px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess15 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      top: 235px;
+      left: 710px;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .square {
+      width: 700px;
+      height: 75px;
+      border: 1px solid #333;
+      flex-direction: row;
+      display: flex;
+    }
+
+    .squares {
+      width: 87.5px;
+      height: 75px;
+      border: 1px solid #333;
+    }
+
+    .squares-1 {
+      width: 87.5px;
+      height: 75px;
+      border: 1px solid #333;
+      position: relative;
+    }
+
+    .squares-1::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 37.5px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #333;
+      transform-origin: bottom center;
+      transform: rotateZ(41deg) scale(1.3);
+    }
+
+    .squares-2 {
+      width: 87.5px;
+      height: 75px;
+      border: 1px solid #333;
+      position: relative;
+    }
+
+    .squares-2::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 37.5px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #333;
+      transform-origin: bottom center;
+      transform: rotateZ(140deg) scale(1.3);
+    }
+
+    .col2 {
+      width: 700px;
+      height: 100px;
+      border: 1px solid #333;
+      display: flex;
+      justify-content: space-around;
+      padding-top: 10px;
+    }
+
+    .write1 {
+      font-family: "標楷體";
+      font-size: 60px;
+    }
+
+    .squares-3 {
+      width: 87.5px;
+      height: 75px;
+      border: 1px solid #333;
+      position: relative;
+    }
+
+    .squares-3::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 37.5px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #333;
+      transform-origin: bottom center;
+      transform: rotateZ(140deg) scale(1.3);
+    }
+
+    .squares-4 {
+      width: 87.5px;
+      height: 75px;
+      border: 1px solid #333;
+      position: relative;
+    }
+
+    .squares-4::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 37.5px;
+      box-sizing: border-box;
+      border-bottom: 1px solid #333;
+      transform-origin: bottom center;
+      transform: rotateZ(41deg) scale(1.3);
+    }
+
+    .col3 {
+      width: 700px;
+      height: 300px;
+      /* border: 1px solid #333; */
+      text-align: center;
+      margin: auto;
+    }
+
+    .chess16 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 14px;
+      left: 23px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess17 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 14px;
+      left: 101px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess18 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 14px;
+      left: 189px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess19 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 14px;
+      left: 278px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess20 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 14px;
+      left: 363px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess21 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 14px;
+      left: 450px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess22 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 14px;
+      left: 540px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess23 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 14px;
+      left: 630px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess24 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 14px;
+      left: 720px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess25 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 166px;
+      left: 102px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess26 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 166px;
+      left: 626px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess27 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 240px;
+      left: 17px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess28 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 240px;
+      left: 190px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess29 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 240px;
+      left: 536px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+
+    .chess30 {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      border: 1px solid #333;
+      position: absolute;
+      background: white;
+      bottom: 240px;
+      left: 714px;
+      color: red;
+      font-family: "標楷體";
+      font-size: 55px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <div class="container">
+    <div class="write">棋盤裡，車無輪。馬無韁，叫聲將軍提防提防</div>
+    <div class="row">
+      <div class="chess0">車</div>
+      <div class="chess1">馬</div>
+      <div class="chess2">象</div>
+      <div class="chess3">士</div>
+      <div class="chess4">將</div>
+      <div class="chess5">士</div>
+      <div class="chess6">象</div>
+      <div class="chess7">馬</div>
+      <div class="chess8">車</div>
+      <div class="chess9">包</div>
+      <div class="chess10">包</div>
+      <div class="chess11">卒</div>
+      <div class="chess12">卒</div>
+      <div class="chess13">卒</div>
+      <div class="chess14">卒</div>
+      <div class="chess15">卒</div>
+      <div class="col">
+        <div class="col1">
+          <div class="square">
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares-1"></div>
+            <div class="squares-2"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+          </div>
+          <div class="square">
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares-3"></div>
+            <div class="squares-4"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+          </div>
+          <div class="square">
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+          </div>
+          <div class="square">
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+          </div>
+        </div>
+        <div class="col2">
+          <div class="write1">楚河</div>
+          <div class="write1">漢界</div>
+        </div>
+        <div class="col3">
+          <div class="square">
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+          </div>
+          <div class="square">
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+          </div>
+          <div class="square">
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares-1"></div>
+            <div class="squares-2"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+          </div>
+          <div class="square">
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares-3"></div>
+            <div class="squares-4"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+            <div class="squares"></div>
+          </div>
+        </div>
+        <div class="chess16">俥</div>
+        <div class="chess17">傌</div>
+        <div class="chess18">相</div>
+        <div class="chess19">仕</div>
+        <div class="chess20">帥</div>
+        <div class="chess21">仕</div>
+        <div class="chess22">相</div>
+        <div class="chess23">傌</div>
+        <div class="chess24">俥</div>
+        <div class="chess25">炮</div>
+        <div class="chess26">炮</div>
+        <div class="chess27">兵</div>
+        <div class="chess28">兵</div>
+        <div class="chess29">兵</div>
+        <div class="chess30">兵</div>
+        <div class="chess31">兵</div>
+      </div>
+
+    </div>
+    <div class="write">圖畫裡，龍不吟，虎不嘯，小小書生可笑可笑</div>
+  </div>
+
+</body>
+
+</html>
